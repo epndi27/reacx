@@ -41,7 +41,7 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <Button text="Contact" />
+      <Button text="Forum" />
     </Nav>
   );
 }
