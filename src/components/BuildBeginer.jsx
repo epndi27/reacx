@@ -1,49 +1,64 @@
 import React from "react";
 import styled from "styled-components";
-import sell1 from "../assets/sell1.png";
-import sell2 from "../assets/sell2.png";
-import sell3 from "../assets/sell3.png";
+import pertanyaan1 from "../assets/pertanyaan1.jpeg";
+import pertanyaan2 from "../assets/pertanyaan2.jpeg";
+import pertanyaan3 from "../assets/pertanyaan3.jpeg";
+import Rekomendasi from "../assets/Rekomendasi.jpeg";
 import Button from "./Button";
 
-export default function CreateAndSell() {
+export default function BuildBeginer() {
   const data = [
     {
-      image: sell1,
-      title: "Create your collection",
+      title: "Pertanyan 1",
+      image: pertanyaan1,
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+        "Pada pertanyaan 1 kita akan menentukan berapa budget yang kita punya untuk membeli komputer. ",
       buttonText: "Create",
     },
     {
-      image: sell2,
-      title: "Add your NFTs",
+      
+      title: "Pertanyaan 2",
+      image: pertanyaan2,
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+        "Pada pertanyaan 2 kita akan menentukan apa kegunaan dari komputer yang akan kita beli. ",
       buttonText: "Add NFT",
     },
     {
-      image: sell3,
-      title: "List them for sale",
+      
+      title: "Pertanyaan 3",
+      image: pertanyaan3,
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.",
+        "Pada pertanyaan 3 kita akan menentukan berapa besar memori penyimpanan dari komputer yang akan kita beli. ",
+      buttonText: "Add NFT",
+    },
+    {
+      
+      title: "Rekomendasi",
+      image: Rekomendasi,
+      description:
+        "Ini merupakan Rekomendasi dari rekomendasi yang disarankan sesuai dengan pilihan budget dan kegunaan anda",
       buttonText: "Sell Now",
     },
   ];
   return (
     <Section>
       <div className="title">
-        <h2>Create and Sell Your NFTs</h2>
+        <h2>Build Beginer</h2>
+        <p>Build Beginer merupakan fitur yang diperuntukkan bagi pengguna yang masih awam tentang komputer. 
+           Dalam Build Beginner kita akan diberikan 3 pertanyaan yaitu diantaranya menanyakan budget, 
+           kegunaan, serta kapasitas memori komputer yang akan kita beli. Setelah kita menjawab semua 
+           pertanyaan maka akan diberikan sebuah rekomendasi yang cocok bagi pengguna.</p>
       </div>
       <div className="container">
         <div className="ellipse"></div>
         <div className="content">
-          {data.map(({ image, title, description, buttonText }, index) => {
+          {data.map(({ title, image, description, buttonText }, index) => {
             return (
-              <div className="createAndSell" key={index}>
+              <div className="BuildBeginer" key={index}>
+                <h3>{title}</h3>
                 <div className="image">
                   <img src={image} alt="create and sell" />
                 </div>
-                <h3>{title}</h3>
                 <p>{description}</p>
 
                 <Button text={buttonText} blue={index === 1} />
@@ -63,6 +78,10 @@ const Section = styled.section`
     text-align: center;
     h2 {
       font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
       margin-bottom: 4rem;
     }
   }
@@ -87,10 +106,10 @@ const Section = styled.section`
     .content {
       display: flex;
       gap: 3rem;
-      .createAndSell {
+      .BuildBeginer {
         background-color: #ffffff34;
         z-index: 10;
-        padding: 2rem;
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -104,7 +123,7 @@ const Section = styled.section`
           width: max-content;
           border-radius: 2rem;
           img {
-            height: 2rem;
+            height: 20rem;
           }
         }
         h3 {
