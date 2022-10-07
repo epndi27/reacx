@@ -113,7 +113,7 @@ const Section = styled.section`
     }
     .image {
       img {
-        height: 35rem;
+        height: 25rem;
       }
     }
   }
