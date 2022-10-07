@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import compare from "../assets/compare.png";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-export default function Subscribe() {
+export default function Compare() {
   return (
     <Section>
       <div className="content">

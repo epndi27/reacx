@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import MarketPlace from "./components/MarketPlace";
 import ScrollToTop from "./components/ScrollToTop";
-import Subscribe from "./components/Subscribe";
+import Compare from "./components/Compare";
 
 
 export default function App() {
@@ -17,8 +17,8 @@ export default function App() {
       
       <BuildBeginer />
       <BuildAdvanced />
-      <Subscribe />
       
+      <Compare />
       <Footer />
     </div>
   );
