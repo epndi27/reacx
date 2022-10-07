@@ -1,5 +1,5 @@
 import React from "react";
-import Choose from "./components/Choose";
+import BuildAdvanced from "./components/BuildAdvanced";
 
 import BuildBeginer from "./components/BuildBeginer";
 import Footer from "./components/Footer";
@@ -16,9 +16,9 @@ export default function App() {
       <Home />
       
       <BuildBeginer />
-      <Choose />
-      <MarketPlace />
+      <BuildAdvanced />
       <Subscribe />
+      
       <Footer />
     </div>
   );

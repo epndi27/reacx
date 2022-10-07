@@ -6,7 +6,7 @@ import { FaTwitterSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdEmail, MdPhoneInTalk } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 
-import logo from "../assets/logo.png";
+import logoRakitPC from "../assets/logoRakitPC.png";
 
 export default function Footer() {
   const servicesLinks = ["Art", "Common", "Trading", "Rare", "Generic"];
@@ -14,15 +14,15 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <MdEmail />,
-      value: "kishanshet21@gmail.com",
+      value: "RakitPC@gmail.com",
     },
     {
       icon: <MdPhoneInTalk />,
-      value: "+(480) 555-0103",
+      value: "+628500000000",
     },
     {
       icon: <IoLocationSharp />,
-      value: "1901 Thornridge Cir. Shiloh, Hawaii 81063",
+      value: "1902 Rakit PC , rakit 81063",
     },
   ];
   const socialIcons = [
@@ -35,9 +35,9 @@ export default function Footer() {
     <Container>
       <div className="row">
         <div className="brand">
-          <img src={logo} alt="logo" />
+          <img src={logoRakitPC} alt="logoRakitPC" />
         </div>
-        <p className="description">1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+        <p className="description">Download Rakit PC Cok</p>
         <div className="social-icons">
           {socialIcons.map((icon) => {
             return <div className="icon">{icon}</div>;

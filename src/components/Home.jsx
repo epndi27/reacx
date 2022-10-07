@@ -12,7 +12,7 @@ export default function Home() {
       <div className="container">
         <div className="content">
           <h1>
-            Bangun PC Anda Disini
+            Unduh Aplikasi, Mulai Rakit PC sesuai keinginan.
           </h1>
           <p>
             RakitPC adalah aplikasi yang berguna untuk
@@ -23,8 +23,7 @@ export default function Home() {
             Mari Bangun Komputer Impian Anda Sekarang!!!
           </p>
           <div className="buttons">
-            <Button blue text="Build Beginner" />
-            <Button text="Build Advanced" />
+            <Button blue text="Unduh Aplikasi" />
           </div>
           {/* <div className="data">
             <div className="dataTab">
@@ -80,7 +79,8 @@ const Section = styled.section`
       padding-right: 2rem;
       h1 {
         color: white;
-        font-size: 5rem;
+        font-size: 2rem;
+        margin-top: 5rem;
         span {
           .img {
           }

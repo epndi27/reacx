@@ -1,23 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import subscribe from "../assets/subscribe.png";
+import compare from "../assets/compare.png";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 export default function Subscribe() {
   return (
     <Section>
       <div className="content">
-        <h2>Subscribe for Get update every New Offers</h2>
+        <h2>Compare</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard.
+          Compare dalam aplikasi Rakit PC merupakan fitur yang digunakan untuk membandingkan antara 
+          part satu dengan yang lainnya. Dalam fitur ini warna merah menunjukkan bahwa spesifikasi 
+          part lebih rendah, warna kuning menunjukkan bahwa spesifikasi part sama, dan warna hijau
+          menunjukkan bahwa spesifikasi part tinggi.
         </p>
-        <div className="input-container">
-          <input type="text" placeholder="Enter Email" />
-          <BsFillArrowRightCircleFill />
-        </div>
       </div>
       <div className="image">
-        <img src={subscribe} alt="subscribe" />
+        <img src={compare} alt="compare" />
       </div>
     </Section>
   );
@@ -45,7 +43,6 @@ const Section = styled.section`
     }
     p {
       color: #7b7e86;
-      line-height: 2rem;
     }
     .input-container {
       padding: 0.5rem;

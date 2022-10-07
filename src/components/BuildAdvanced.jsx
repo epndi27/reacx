@@ -1,20 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import choose from "../assets/choose.png";
+import buildadvanced from "../assets/buildadvanced.png";
 import Button from "./Button";
-export default function Choose() {
+export default function BuildAdvanced() {
   return (
     <Section>
       <div className="image">
-        <img src={choose} alt="choose" />
+        <img src={buildadvanced} alt="buildadvanced" />
       </div>
       <div className="content">
-        <h2>Why should you Choose Our Website ?</h2>
+        <h2>Build Advanced</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          Build Advanced merupakan fitur yang diperuntukkan bagi pengguna yang sudah paham tentang komputer, 
+          pengguna dapat memilih sendiri part yang diinginkan. Selain itu didalam Build Advanced juga terdapat 
+          pengecekan compatibility antar setiap part, serta terdapat juga perkiraan watt yang akan dibutuhkan.
         </p>
         <Button text="Read More" blue />
       </div>
