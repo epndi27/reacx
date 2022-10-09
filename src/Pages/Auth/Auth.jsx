@@ -1,6 +1,6 @@
 import React from "react";
 import "./Auth.css";
-import Logo from "../../img/logo.png";
+import Logo from "../../img/RPC_final.png";
 
 const Auth = () => {
   return (
@@ -8,8 +8,8 @@ const Auth = () => {
       <div className="a-left">
         <img src={Logo} alt="" />
         <div className="Webname">
-          <h1>ZKC Media</h1>
-          <h6>Explore the ideas throughout the world</h6>
+          <h1>Rakit PC</h1>
+          <h6>Rakit PC anda disini</h6>
         </div>
       </div>
 
