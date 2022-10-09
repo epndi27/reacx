@@ -1,0 +1,29 @@
+.PostComment{
+    display: flex;
+    gap: 1rem;
+    background-color: var(--cardColor);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.ps-button{
+    width: 70px;
+    height: 40px;
+    padding: 5px;
+    margin-right: 30px;
+    font-size: 12px;
+    background: linear-gradient(106.23deg, #7a77ff, #030303 100%);
+}
+
+.PostComment>div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 1rem;
+}
+
+.PostComment>img{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}

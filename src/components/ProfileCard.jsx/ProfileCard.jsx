@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cover from "../../img/cover.jpg";
-import Profile from "../../img/profileImg.jpg";
+import Profile from "../../img/irene.jpg";
 import { UilPen } from "@iconscout/react-unicons";
 import ProfileModal from "../ProfileModal.jsx/ProfileModal";
 import "./ProfileCard.css";
@@ -28,7 +28,7 @@ const ProfileCard = () => {
       </div>
 
       <div className="ProfileName">
-        <span>Zendaya MJ</span>
+        <span>Irene</span>
         <span>Advanced</span>
       </div>
 
