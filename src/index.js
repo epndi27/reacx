@@ -7,7 +7,7 @@ import Forum from "./Forum";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Forum />
+    <App />
+    {/* <Forum /> */}
   </React.StrictMode>
 );

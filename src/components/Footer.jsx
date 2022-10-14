@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import "@fontsource/montserrat";
 import { AiFillFacebook } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
 import { FaTwitterSquare, FaInstagramSquare } from "react-icons/fa";
@@ -9,8 +10,8 @@ import { IoLocationSharp } from "react-icons/io5";
 import logoRakitPC from "../assets/logoRakitPC.png";
 
 export default function Footer() {
-  const servicesLinks = ["Art", "Common", "Trading", "Rare", "Generic"];
-  const companyLinks = ["Home", "About", "Marketplace", "Sellers", "Create"];
+  const servicesLinks = ["Build Beginer", "Build Advanced", "Compare"];
+  const companyLinks = ["Home", "Download", "Contact", "About Us"];
   const contactInfo = [
     {
       icon: <MdEmail />,
@@ -37,7 +38,7 @@ export default function Footer() {
         <div className="brand">
           <img src={logoRakitPC} alt="logoRakitPC" />
         </div>
-        <p className="description">Download Rakit PC Cok</p>
+        <p className="description">Download Rakit PC Sekarang</p>
         <div className="social-icons">
           {socialIcons.map((icon) => {
             return <div className="icon">{icon}</div>;

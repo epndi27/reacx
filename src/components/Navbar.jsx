@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import logoRakitPC from "../assets/logoRakitPC.png";
 import Button from "./Button";
+
 export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const html = document.querySelector("html");
@@ -28,16 +29,16 @@ export default function Navbar() {
       <div className={`links ${isNavOpen ? "show" : ""}`}>
         <ul>
           <li>
+            <a href="home">Home</a>
+          </li>
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=com.rakitpc.rakitpc">Download</a>
+          </li>
+          <li>
+            <a href="home">Contact</a>
+          </li>
+          <li>
             <a href="home">About Us</a>
-          </li>
-          <li>
-            <a href="maketplace">Marketplace</a>
-          </li>
-          <li>
-            <a href="sellers">Sellers</a>
-          </li>
-          <li>
-            <a href="create">Create</a>
           </li>
         </ul>
       </div>

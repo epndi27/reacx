@@ -3,7 +3,7 @@ import PostSide from '../../components/PostSide/PostSide'
 import ProfileCard from '../../components/ProfileCard.jsx/ProfileCard'
 import ProfileLeft from '../../components/ProfileLeft/ProfileLeft'
 import RightSide from '../../components/RightSide/RightSide'
-import '../Profile/Profile.css';
+import '../Profile/profile.css';
 const Profile = () => {
   return (
     <div className="Profile">

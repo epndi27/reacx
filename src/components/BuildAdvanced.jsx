@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import buildadvanced from "../assets/buildadvanced.png";
-import Button from "./Button";
+import "@fontsource/montserrat";
+
 export default function BuildAdvanced() {
   return (
     <Section>
@@ -15,7 +16,7 @@ export default function BuildAdvanced() {
           pengguna dapat memilih sendiri part yang diinginkan. Selain itu didalam Build Advanced juga terdapat 
           pengecekan compatibility antar setiap part, serta terdapat juga perkiraan watt yang akan dibutuhkan.
         </p>
-        <Button text="Read More" blue />
+        
       </div>
     </Section>
   );
@@ -37,10 +38,13 @@ const Section = styled.section`
     gap: 3rem;
     h2 {
       font-size: 4rem;
+      font-family: 'Montserrat';
     }
     p {
       color: #7b7e86;
       line-height: 2rem;
+      font-family: 'Montserrat';
+      font-size: 20px;
     }
   }
   @media screen and (min-width: 280px) and (max-width: 1080px) {
@@ -51,7 +55,7 @@ const Section = styled.section`
       justify-content: center;
       align-items: center;
       img {
-        height: 50vw;
+        height: 30vw;
       }
     }
     .content {
