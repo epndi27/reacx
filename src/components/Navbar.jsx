@@ -4,17 +4,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import logoRakitPC from "../assets/logoRakitPC.png";
 import Button from "./Button";
-<<<<<<< HEAD
-import {Link, useHistory} from "react-router-dom";
-=======
-
->>>>>>> 5a35688389ab2e2fbb293a9f61aa5a249ca8e50a
+import {Link} from "react-router-dom";
 export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const html = document.querySelector("html");
 
-  
-  const history = useHistory();
 
   html.addEventListener("click", (e) => setIsNavOpen(false));
   return (
@@ -50,7 +44,6 @@ export default function Navbar() {
           <li>
             <a href="home">About Us</a>
           </li>
-<<<<<<< HEAD
           <li>
             <a href="maketplace">Marketplace</a>
           </li>
@@ -60,12 +53,6 @@ export default function Navbar() {
           <li>
             <a href="create">Create</a>
           </li>
-          <li>
-            {/* Endpoint to route to Contact Us component */}
-            <Link to="/forum">Forum</Link>
-          </li>
-=======
->>>>>>> 5a35688389ab2e2fbb293a9f61aa5a249ca8e50a
         </ul>
       </div>
       <Link to={'/forum'}>
