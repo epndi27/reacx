@@ -32,7 +32,9 @@ export default function Navbar() {
             <a href="home">Home</a>
           </li>
           <li>
-            <a href="https://play.google.com/store/apps/details?id=com.rakitpc.rakitpc">Download</a>
+            <a href="https://play.google.com/store/apps/details?id=com.rakitpc.rakitpc">
+              Download
+            </a>
           </li>
           <li>
             <a href="home">Contact</a>
