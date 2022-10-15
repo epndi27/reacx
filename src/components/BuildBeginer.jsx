@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import pertanyaan1 from "../assets/pertanyaan1.jpeg";
-import pertanyaan2 from "../assets/pertanyaan2.jpeg";
-import pertanyaan3 from "../assets/pertanyaan3.jpeg";
-import Rekomendasi from "../assets/Rekomendasi.jpeg";
-import Button from "./Button";
+import pertanyaan1 from "../assets/pertanyaan1.png";
+import pertanyaan2 from "../assets/pertanyaan2.png";
+import pertanyaan3 from "../assets/pertanyaan3.png";
+import Rekomendasi from "../assets/Rekomendasi.png";
+import "@fontsource/montserrat";
+
 
 export default function BuildBeginer() {
   const data = [
@@ -36,6 +37,7 @@ export default function BuildBeginer() {
   ];
   return (
     <Section>
+      <style>{'body { background-color: #EDEDED; }'}</style>
       <div className="title">
         <h2>Build Beginer</h2>
         <p>Build Beginer merupakan fitur yang diperuntukkan bagi pengguna yang masih awam tentang komputer. 
@@ -53,7 +55,7 @@ export default function BuildBeginer() {
                 <div className="image">
                   <img src={image} alt="create and sell" />
                 </div>
-                <p>{description}</p>
+                <p >{description}</p>
               </div>
             );
           })}
@@ -71,10 +73,12 @@ const Section = styled.section`
     h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
+      font-family: 'Montserrat';
     }
     p {
-      font-size: 1rem;
+      font-size: 20px;
       margin-bottom: 4rem;
+      font-family: 'Montserrat';
     }
   }
   .container {
@@ -120,10 +124,12 @@ const Section = styled.section`
         }
         h3 {
           color: white;
+          font-family: 'Montserrat';
         }
         p {
           color: #c8c4cf;
           margin-bottom: 1rem;
+          font-family: 'Montserrat';
         }
         button {
         }

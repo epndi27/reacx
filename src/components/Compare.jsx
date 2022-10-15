@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import compare from "../assets/compare.png";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import "@fontsource/montserrat";
+
+
 export default function Compare() {
   return (
     <Section>
@@ -22,6 +24,7 @@ export default function Compare() {
 }
 
 const Section = styled.section`
+  
   display: flex;
   justify-content: center;
   align-content: center;
@@ -40,9 +43,12 @@ const Section = styled.section`
     /* width: 50%; */
     h2 {
       font-size: 4rem;
+      font-family: 'Montserrat';
     }
     p {
       color: #7b7e86;
+      font-family: 'Montserrat';
+      font-size: 20px;
     }
     .input-container {
       padding: 0.5rem;

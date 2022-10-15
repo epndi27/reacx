@@ -16,6 +16,7 @@ axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+<<<<<<< HEAD
   <Router>
     <Switch>
       <Route exact path="/" component={App} />
@@ -28,4 +29,10 @@ root.render(
   //   {/* <App /> */}
   //   <Forum />
   // </React.StrictMode>
+=======
+  <React.StrictMode>
+    <App />
+    {/* <Forum /> */}
+  </React.StrictMode>
+>>>>>>> 5a35688389ab2e2fbb293a9f61aa5a249ca8e50a
 );

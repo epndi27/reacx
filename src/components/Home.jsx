@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import hero from "../assets/hero.png";
-import heroText from "../assets/heroText.png";
+import get from "../assets/get.png";
 import Button from "./Button";
 import Navbar from "./Navbar";
+import "@fontsource/montserrat";
+
+
 export default function Home() {
   return (
     <Section>
@@ -22,8 +25,10 @@ export default function Home() {
             dan kegunaan Anda.<br /><br />
             Mari Bangun Komputer Impian Anda Sekarang!!!
           </p>
-          <div className="buttons">
-            <Button blue text="Unduh Aplikasi" />
+          <div className="img">
+            <a href="https://play.google.com/store/apps/details?id=com.rakitpc.rakitpc">
+              <img src={get} alt="get" />
+            </a>
           </div>
           {/* <div className="data">
             <div className="dataTab">
@@ -55,9 +60,9 @@ const Section = styled.section`
   overflow: hidden;
   margin-bottom: 5rem;
   .ellipse {
+    background-color: #EDEDED;
     height: 30rem;
     width: 30rem;
-    background-color: #ae54c27d;
     border-radius: 100%;
     filter: blur(2000px);
     opacity: 0.5;
@@ -81,6 +86,7 @@ const Section = styled.section`
         color: white;
         font-size: 2rem;
         margin-top: 5rem;
+        font-family: 'Montserrat';
         span {
           .img {
           }
@@ -88,6 +94,7 @@ const Section = styled.section`
       }
       p {
         color: #a6a6a6;
+        font-family: 'Montserrat';
       }
       .buttons {
         display: flex;
