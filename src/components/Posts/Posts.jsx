@@ -10,6 +10,7 @@ const Posts = () => {
   const [modalOpened, setModalOpened] = useState(false);
 
   return (
+    
     <div className="Posts">
         {PostsData.map((post, id)=>{
             return <Post data={post} id={id}/>

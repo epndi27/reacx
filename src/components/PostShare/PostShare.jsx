@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import axios from 'axios';
 // import { Editor } from '@tinymce/tinymce-react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import ProfileImage from "../../img/irene.jpg";
@@ -9,18 +10,52 @@ import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
+import {Link} from 'react-router-dom';
 
 
-const PostShare = () => {
+function PostShare () {
   const [image, setImage] = useState(null);
   const imageRef = useRef();
 
-  // const editorRef = useRef(null);
-  //  const log = () => {
-  //    if (editorRef.current) {
-  //      console.log(editorRef.current.getContent());
-  //    }
-  //  };
+  const [selectedFile, setSelectedFile] = useState();
+  const [loadimage, setLoadImage] = useState([]);
+  const [desc, setDesc] = useState("");
+
+  useEffect(() => {
+    loadList();
+  }, []);
+ 
+  const loadList = async () => {
+    const result = await axios.get("http://127.0.0.1:8000/api/list");
+    setLoadImage(result.data.reverse());
+  };
+
+  const handleSubmission = async (e) => {
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+    formData.append("desc", desc);
+    await fetch("http://localhost:8000/api/upload", {
+      method: "POST",
+      body: formData,
+    })
+    .then((result)=>{
+      loadList();
+    })
+    .catch(()=>{
+      alert('Error in the Code');
+    });
+  };
+ 
+  const deleteImage = (productId) =>
+  {
+    axios.get('http://127.0.0.1:8000/api/delete/'+productId)
+    .then((result)=>{
+      loadList();
+    })
+    .catch(()=>{
+      alert('Error in the Code');
+    });
+  };
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -34,39 +69,25 @@ const PostShare = () => {
     <div className="PostShare">
       <img src={ProfileImage} alt="" />
       <div>
-        {/* <Editor
-          onInit={(evt, editor) => editorRef.current = editor}
-          initialValue="<p>This is the initial content of the editor.</p>"
-          init={{
-            height: 500,
-            menubar: false,
-            plugins: [
-              'advlist autolink lists link image charmap print preview anchor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-            'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
-            'removeformat | help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-          }}
-        /> */}
 
         <Textarea
             placeholder="Ketik disini..."
             autosize
             minRows={2}
+            type="text"
+            name="judul"
+            onChange={(e) => setDesc(e.target.value)}
         />
         
         <div className="postOptions">
-          {/* <div className="option" style={{ color: "var(--photo)" }}
-          onClick={()=>imageRef.current.click()}
+          <div className="option" style={{ color: "var(--photo)" }}
+          onChange={(e) => setSelectedFile(e.target.files[0])}
+          type="file"
           >
             <UilScenery />
             Photo
           </div>
-          <div className="option" style={{ color: "var(--video)" }}>
+          {/* <div className="option" style={{ color: "var(--video)" }}>
             <UilPlayCircle />
             Video
           </div>{" "}
@@ -78,7 +99,7 @@ const PostShare = () => {
             <UilSchedule />
             Shedule
           </div> */}
-          <button style={{ marginLeft: "auto" }} className="button ps-button">Post</button>
+          <button style={{ marginLeft: "auto" }} onClick={handleSubmission} className="button ps-button">Post</button>
           <div style={{ display: "none" }}>
             <input
               type="file"

@@ -21,8 +21,7 @@ const Post = ({data}) => {
 
         <img src={data.imgpost} alt="" />
 
-        <div className="detail">
-            <span><b>{data.name}</b></span>
+        <div className="Isipost">
             <span> {data.desc}</span>
         </div>
 
@@ -38,8 +37,12 @@ const Post = ({data}) => {
             <Icon icon="bxs:share-alt" color="#7a77ff" height="30" />
         </div>
 
-
         <span style={{color: "var(--gray)", fontSize: '12px'}}>{data.likes} likes</span>
+
+        <div className="Comment">
+          <span><b>{data.name}</b></span>
+          <span> {data.desc}</span>
+        </div>
 
     </div>
   )

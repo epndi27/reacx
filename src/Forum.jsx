@@ -3,12 +3,20 @@ import "./Forum.css"
 import Profile from "../src/pages/Profile/Profile";
 import Auth from "../src/pages/Auth/Auth";
 import ForumPage from "../src/pages/ForumPage/ForumPage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function Forum() {
   return (
     <div className="Forum">
         <div className="blur" style={{top: '-18%', right: '0'}}></div>
         <div className="blur" style={{top: '36%', left: '-8rem'}}></div>
+        <Router>
+          <Switch>
+            <Route path="/forum/Login" component={Auth} />
+            {/* <Route path="/forumpage" component={ForumPage} /> */}
+            <Route path="/forum/profile" component={Profile} />
+          </Switch>
+        </Router>
         <ForumPage/> 
         {/* <Profile/> */}
         {/* <Auth/> */}
