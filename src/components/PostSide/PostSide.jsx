@@ -6,14 +6,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PostApi from '../Post/PostApi';
 import ImageUpload from './ImageUpload';
+import ImageGallery from './ImageGallery';
 
 function PostSide () {
 
 
   return (
    <div className="PostSide">
-      {/* <ImageUpload/> */}
-      <PostApi/>
+      <ImageGallery/>
+      {/* <PostApi/> */}
        {/* <PostShare/>
        <Posts/> */}
    </div>
