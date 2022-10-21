@@ -8,6 +8,7 @@ import ProfileModal from "../ProfileModal.jsx/ProfileModal";
 
 const Posts = () => {
   const [modalOpened, setModalOpened] = useState(false);
+  
 
   return (
     
@@ -15,7 +16,6 @@ const Posts = () => {
         {PostsData.map((post, id)=>{
             return <Post data={post} id={id}/>
         })}
-        
     </div>
   )
 }
