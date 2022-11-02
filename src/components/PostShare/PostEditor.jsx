@@ -26,15 +26,15 @@ function PostEditor () {
 
   const [NamaPengepost, setName] = useState("");
   const [IdPengepost, setIdPengepost] = useState("");
-  const [file, setFile] = useState("");
+  const [img_path, setFile] = useState("");
   const [JudulPost, setJudul] = useState("");
   const [IsiPost, setIsi] = useState("");
   const [Like, setLike] = useState("");
 
   async function addPost(){
-    console.warn(NamaPengepost, IdPengepost, file, JudulPost, IsiPost, Like)
+    console.warn(NamaPengepost, IdPengepost, img_path, JudulPost, IsiPost, Like)
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('img_path', img_path);
     formData.append('NamaPengepost', NamaPengepost);
     formData.append('IdPengepost', IdPengepost);
     formData.append('JudulPost', JudulPost);
