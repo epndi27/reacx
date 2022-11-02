@@ -114,10 +114,6 @@ function PostEditor () {
           <Form.Label>Text Area</Form.Label>
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
-        <Form.Group className="mb-3" onChange={(e) => setLike(e.target.value)} controlId="exampleForm.ControlInput1">
-          <Form.Label>Jumlah Like</Form.Label>
-          <Form.Control type="email" placeholder="" />
-        </Form.Group>
         <Form.Group controlId="formFile" onChange={(e) => setFile(e.target.files[0])} className="mb-3">
           <Form.Label>Input file</Form.Label>
           <Form.Control type="file" />
