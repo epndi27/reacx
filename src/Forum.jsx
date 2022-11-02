@@ -1,8 +1,8 @@
 import React from "react";
 import "./Forum.css"
-import Profile from "../src/pages/Profile/Profile";
-import Auth from "../src/pages/Auth/Auth";
-import ForumPage from "../src/pages/ForumPage/ForumPage";
+import Profile from "../src/Pages/Profile/Profile";
+import Auth from "../src/Pages/Auth/Auth";
+import ForumPage from "../src/Pages/ForumPage/ForumPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function Forum() {

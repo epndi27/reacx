@@ -7,16 +7,18 @@ import axios from "axios";
 import PostApi from '../Post/PostApi';
 import ImageUpload from './ImageUpload';
 import ImageGallery from './ImageGallery';
+import PostEditor from '../PostShare/PostEditor';
 
 function PostSide () {
 
 
   return (
    <div className="PostSide">
-      <ImageGallery/>
-      {/* <PostApi/> */}
+      {/* <ImageGallery/> */}
        {/* <PostShare/>
        <Posts/> */}
+       <PostEditor/>
+       <PostApi/>
    </div>
   )
 }
