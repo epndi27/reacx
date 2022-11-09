@@ -6,7 +6,7 @@ stages:
 build:
   stage: build
   rules:
-  - if: '$CI_COMMIT_BRANCH == "main"'
+  - if: '$CI_COMMIT_BRANCH == "master"'
   image: docker:20.10.16
   services:
   - docker:20.10.16-dind
@@ -18,13 +18,13 @@ build:
 deploy:
   stage: deploy
   rules:
-  - if: '$CI_COMMIT_BRANCH == "main"'
+  - if: '$CI_COMMIT_BRANCH == "master"'
   before_script:
    - apt-get update -qq
    - apt-get install -qq git
    - apt-get install sshpass
   script:
-   - sshpass -p $SSH_PASSWORD ssh -o 'StrictHostKeyChecking=no' dhani@150.136.111.110 "bash /home/dhani/docker/travello-frontend/deploy-frontend.sh"
+   - sshpass -p $SSH_PASSWORD ssh -o 'StrictHostKeyChecking=no' ependi@23.102.93.196 "bash /home/ependi/docker/rakit-pc-website-react/deploy-frontend.sh"
 
 success_notification:
   stage: notification
