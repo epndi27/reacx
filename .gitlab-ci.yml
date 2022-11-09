@@ -1,0 +1,42 @@
+stages:
+  - build
+  - deploy
+  - notification
+
+build:
+  stage: build
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+  image: docker:20.10.16
+  services:
+  - docker:20.10.16-dind
+  script:  
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  - docker build -t $CI_REGISTRY_IMAGE:latest .
+  - docker push $CI_REGISTRY_IMAGE:latest
+
+deploy:
+  stage: deploy
+  rules:
+  - if: '$CI_COMMIT_BRANCH == "main"'
+  before_script:
+   - apt-get update -qq
+   - apt-get install -qq git
+   - apt-get install sshpass
+  script:
+   - sshpass -p $SSH_PASSWORD ssh -o 'StrictHostKeyChecking=no' dhani@150.136.111.110 "bash /home/dhani/docker/travello-frontend/deploy-frontend.sh"
+
+success_notification:
+  stage: notification
+  script:
+    - wget https://raw.githubusercontent.com/DiscordHooks/gitlab-ci-discord-webhook/master/send.sh
+    - chmod +x send.sh
+    - ./send.sh success $WEBHOOK_URL
+  when: on_success
+failure_notification:
+  stage: notification
+  script:
+    - wget https://raw.githubusercontent.com/DiscordHooks/gitlab-ci-discord-webhook/master/send.sh
+    - chmod +x send.sh
+    - ./send.sh failure $WEBHOOK_URL
+  when: on_failure
