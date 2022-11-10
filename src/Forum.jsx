@@ -13,7 +13,7 @@ export default function Forum() {
         <Router>
           <Switch>
             <Route path="/forum/Login" component={Auth} />
-            {/* <Route path="/forumpage" component={ForumPage} /> */}
+            <Route path="/forumpage" component={ForumPage} />
             <Route path="/forum/profile" component={Profile} />
           </Switch>
         </Router>

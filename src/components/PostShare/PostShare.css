@@ -4,6 +4,8 @@
     background-color: var(--cardColor);
     padding: 1rem;
     border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .PostShare>img{
@@ -15,7 +17,6 @@
 .PostShare>div{
     display: flex;
     flex-direction: column;
-    width: 90%;
     gap: 1rem;
 }
 
