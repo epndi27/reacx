@@ -27,20 +27,12 @@ function PostApi() {
     getDataPost();
   }, []);
 
-  async function deletePost(id)
-  {
-    let result = await fetch("http://103.105.78.75/api/Forum/Delete/"+id, {
-      method: 'GET'
-    });
-    result = await result.json();
-    console.warn(result)
-    getDataPost();
-  }
   async function getDataPost()
   {
     let result = await fetch("http://103.105.78.75/api/Forum/List");
     result = await result.json();
-    setPostdata(result)
+    setPostdata(result.reverse())
+    console.log(result);
   }
 
   return (
@@ -50,6 +42,7 @@ function PostApi() {
           <div className="">
             <CardPost 
                 key={item.IdPost} 
+                idPost={item.IdPost}
                 id={item.IdPengepost} 
                 nama={item.NamaPengepost} 
                 judul={item.JudulPost} 
@@ -70,6 +63,18 @@ function CardPost(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  async function deletePost(id)
+  {
+    let result = await fetch("http://103.105.78.75/api/Forum/Delete/"+id, {
+      method: 'GET'
+    });
+    result = await result.json();
+    console.warn(result)
+    window.location.reload()
+  }
+
+
+
   return (
     <>
       <div className="Post">
@@ -87,13 +92,12 @@ function CardPost(props) {
             <Col sm={4}>
               <Menu position="right-start" shadow="md" width={200}>
                 <Menu.Target>
-                  <Icon className="float-end "  icon="ci:more-vertical" color="#7a77ff" width="30" />
+                  <Icon className="float-end " icon="ci:more-vertical" color="#7a77ff" width="30" />
                 </Menu.Target>
 
-                {/* onClick={()=>deletePost(props.IdPost)} */}
 
                 <Menu.Dropdown>
-                  <Menu.Item color="red" icon={<IconTrash size={14} />}>Hapus post saya</Menu.Item>
+                  <Menu.Item color="red" onClick={()=>deletePost(props.idPost)} icon={<IconTrash size={14} />}>Hapus post saya</Menu.Item>
                 </Menu.Dropdown>
               </Menu>
             </Col>

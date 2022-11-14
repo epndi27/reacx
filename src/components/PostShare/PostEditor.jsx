@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import {Link} from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+
 
 
 function PostEditor () {
@@ -38,7 +40,18 @@ function PostEditor () {
       method: 'POST',
       body: formData
     });
-    alert("Post Terkirim")
+    // alert("Post Terkirim")
+    toast.success('Berhasil dikirim!', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+    setShow(false)
     
   }
 
@@ -94,8 +107,8 @@ function PostEditor () {
             <Form.Group className="mb-3" onChange={(e) => setTipe(e.target.value)} controlId="exampleForm.ControlInput1">
               <Form.Select aria-label="Default select example">
                 <option>Tipe Post</option>
-                <option value="1">Diskusi</option>
-                <option value="2">Pertanyaan</option>
+                <option value="Diskusi">Diskusi</option>
+                <option value="Pertanyaan">Pertanyaan</option>
               </Form.Select>
             </Form.Group>
             <Form.Group controlId="formFile" onChange={(e) => setFile(e.target.files[0])} className="mb-3">
@@ -104,6 +117,7 @@ function PostEditor () {
             </Form.Group>
           </Form>
         </Modal.Body>
+
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -115,6 +129,7 @@ function PostEditor () {
           </Link>
         </Modal.Footer>
       </Modal>
+      <ToastContainer />
     </>
   );
 };

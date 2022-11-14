@@ -4,6 +4,7 @@ import ProfileCard from '../../components/ProfileCard.jsx/ProfileCard'
 import ProfileLeft from '../../components/ProfileLeft/ProfileLeft'
 import RightSide from '../../components/RightSide/RightSide'
 import './profile.css';
+
 const Profile = () => {
   return (
     <div className="Profile">

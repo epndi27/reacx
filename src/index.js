@@ -6,6 +6,7 @@ import App from "./App";
 import Forum from "./Forum";
 import Profile from "../src/Pages/Profile/Profile"
 import axios from 'axios';
+import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
