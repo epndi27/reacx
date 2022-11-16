@@ -1,5 +1,8 @@
 import { Modal, Space, useMantineTheme } from "@mantine/core";
 import React, { useState } from "react";
+import { Col, Row, Form } from "react-bootstrap";
+
+
 
 function ProfileModal({ modalOpened, setModalOpened }) {
   const theme = useMantineTheme();
@@ -14,7 +17,32 @@ function ProfileModal({ modalOpened, setModalOpened }) {
     console.log(value);
   };
 
-  return (
+  const [NamaUser, setUserName] = useState("");
+  const [ProfilePic_Path, setProfilePic] = useState("");
+
+  const [TipeUser, setTipeUser] = useState("");
+  const [Kelamin, setKelamin] = useState("");
+  const [Profesi, setProfesi] = useState("");
+
+  async function addProfile(){
+    console.warn(NamaUser, ProfilePic_Path,)
+    const formData = new FormData();
+    formData.append('IdUser', 14);
+    formData.append('ProfilePic_Path', ProfilePic_Path);
+    formData.append('NamaUser', NamaUser);
+
+    formData.append('TipeUser', TipeUser);
+    formData.append('Kelamin', Kelamin);
+    formData.append('Profesi', Profesi);
+
+    let result = await fetch("http://103.105.78.75/api/Profile/Upload",{
+      method: 'POST',
+      body: formData
+    });
+    alert("Post Terkirim")
+  }
+
+  return ( 
     <Modal
       overlayColor={
         theme.colorScheme === "dark"
@@ -28,9 +56,62 @@ function ProfileModal({ modalOpened, setModalOpened }) {
       onClose={() => setModalOpened(false)}
     >
       <form className="infoForm">
-        <h3>Your info</h3>
+        <h3>Profile User</h3>
+        <Form>
+        <Form.Group hidden className="mb-3" onChange={(e) => setUserName(e.target.value)} controlId="exampleForm.ControlInput1">
+          <Form.Label>Id User</Form.Label>
+          <Form.Control type="email" placeholder="" />
+        </Form.Group>
 
-        <div>
+        <Row >
+        <Form.Group as={Col} className="mb-3" onChange={(e) => setUserName(e.target.value)} controlId="exampleForm.ControlInput1">
+          <Form.Label>Nama User</Form.Label>
+          <Form.Control type="email" placeholder="" />
+        </Form.Group>
+
+        <Form.Group as={Col} className="mb-3" onChange={(e) => setProfesi(e.target.value)} controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Profesi</Form.Label>
+          {/* <Form.Select aria-label="Default select example">
+            <option>Open this Profesi</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Form.Select> */}
+          <Form.Control type="email" placeholder="" />
+        </Form.Group>
+        </Row>
+        
+        <Row>
+        <Form.Group as={Col} className="mb-3" onChange={(e) => setTipeUser(e.target.value)} controlId="exampleForm.ControlInput1">
+          <Form.Label>Tipe User </Form.Label>
+          <Form.Select aria-label="Default select example">
+            <option>Open this Tipe User</option>
+            <option value="1">Beginer</option>
+            <option value="2">Intermediate</option>
+            <option value="3">Advanced</option>
+          </Form.Select>
+          {/* <Form.Control type="email" placeholder="" /> */}
+        </Form.Group>
+        <Form.Group as={Col} className="mb-3" onChange={(e) => setKelamin(e.target.value)} controlId="exampleForm.ControlInput1">
+          <Form.Label>Kelamin</Form.Label>
+          <Form.Select aria-label="Default select example">
+            <option>Open this Kelamin</option>
+            <option value="1">Pria</option>
+            <option value="2">Wanita</option>
+            <option value="3">Waria</option>
+          </Form.Select>
+          {/* <Form.Control type="email" placeholder="" /> */}
+        </Form.Group>
+        </Row>
+
+        <Form.Group controlId="formFile" onChange={(e) => setProfilePic(e.target.files[0])} className="mb-3">
+          <Form.Label>Profile Image</Form.Label>
+          <Form.Control type="file" />
+        </Form.Group>
+
+      </Form>
+
+        {/* <div>
           <input
             type="text"
             className="infoInput"
@@ -41,18 +122,29 @@ function ProfileModal({ modalOpened, setModalOpened }) {
           <input
             type="text"
             className="infoInput"
-            name="Username"
-            placeholder="Username"
+            name="Profesi"
+            placeholder="Profesi"
           />
         </div>
 
         <div>
           <select className="infoInput" defaultValue={value} onChange={handleChange}>
-            <option value="default" disabled hidden>
-              Choose User Type
+            <option value="default" >
+              Pilih Tipe User : 
             </option>
-            <option value="advanced">Advanced</option>
             <option value="beginner">Beginner</option>
+            <option value="beginner">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+
+        <div >
+          <select className="infoInput" defaultValue={value} onChange={handleChange}>
+            <option value="default" disabled hidden>
+              Kelamin
+            </option>
+            <option value="beginner">Laki-Laki</option>
+            <option value="beginner">Perempuan</option>
           </select>
         </div>
 
@@ -62,10 +154,10 @@ function ProfileModal({ modalOpened, setModalOpened }) {
             <Space h="xs" />
             Cover Image
             <input type="file" name="coverImg" />
-        </div>
-
-        <button className="button infoButton">Update</button>
+        </div> */}
+        
       </form>
+      <button style={{ marginLeft: "auto" }} onClick={addProfile} className="button infoButton">Upload</button>
     </Modal>
   );
 }

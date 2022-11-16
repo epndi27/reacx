@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cover from "../../img/cover.jpg";
-import Profile from "../../img/irene.jpg";
+import Profile from "../../img/billgates.jpg";
 import { UilPen } from "@iconscout/react-unicons";
 import ProfileModal from "../ProfileModal.jsx/ProfileModal";
 import "./ProfileCard.css";
@@ -28,7 +28,7 @@ const ProfileCard = () => {
       </div>
 
       <div className="ProfileName">
-        <span>Irene</span>
+        <span>Bill Gates</span>
         <span>Advanced</span>
       </div>
 
@@ -36,7 +36,7 @@ const ProfileCard = () => {
         <hr />
         <div>
           <div className="follow">
-            <span>6,890</span>
+            <span>10,890</span>
             <span>Likes</span>
           </div>
          
@@ -45,7 +45,7 @@ const ProfileCard = () => {
             <>
               <div className="vl"></div>
               <div className="follow">
-                <span>3</span>
+                <span>8</span>
                 <span>Posts</span>
               </div>
             </>
