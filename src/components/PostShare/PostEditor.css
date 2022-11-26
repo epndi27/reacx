@@ -12,6 +12,7 @@
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
+    margin-left: 2rem;
 }
 
 .PostShare>div{
@@ -28,10 +29,6 @@
     border: none;
     outline: none;
 }
-
-
-
-
 
 .postOptions{
     display: flex;
@@ -81,4 +78,40 @@
     border-radius: 0.5rem;
 }
 
+@media screen and (min-width: 280px) and (max-width: 1080px) {
+    .PostShare {
+        
+    }
 
+    .PostShare>img{
+        margin-left: 2rem;
+    }
+}
+
+.ProfDesktop{
+    display: none;
+}
+
+.ProfMobile{
+    display: flex;
+    margin: 0;
+}
+
+@media screen and (min-width: 426px) {
+    .ProfDesktop{
+        display: flex;
+        width: 50px;
+        border-radius: 50%;
+    }
+    
+    .ProfMobile{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .PostShare{
+        gap: 0;
+        padding: 1rem 0;
+    }
+}

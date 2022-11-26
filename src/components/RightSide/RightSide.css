@@ -25,3 +25,9 @@
     width: 80%;
     align-self: center;
 }
+
+@media screen and (min-width: 280px) and (max-width: 1080px) {
+    .RightSide {
+        display: none !important
+    }
+}

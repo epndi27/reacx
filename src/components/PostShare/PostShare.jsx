@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { Editor } from '@tinymce/tinymce-react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import ProfileImage from "../../img/irene.jpg";
-import "./PostShare.css";
+import "./PostEditor.css";
 import { Textarea } from '@mantine/core';
 import { UilScenery } from "@iconscout/react-unicons";
 import { UilPlayCircle } from "@iconscout/react-unicons";

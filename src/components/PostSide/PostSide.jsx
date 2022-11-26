@@ -8,6 +8,7 @@ import PostApi from '../Post/PostApi';
 import ImageUpload from './ImageUpload';
 import ImageGallery from './ImageGallery';
 import PostEditor from '../PostShare/PostEditor';
+import PostNew from '../Post/PostNew';
 
 function PostSide () {
 
@@ -18,7 +19,8 @@ function PostSide () {
        {/* <PostShare/>
        <Posts/> */}
        <PostEditor/>
-       <PostApi/>
+       {/* <PostApi/> */}
+       <PostNew/>
    </div>
   )
 }

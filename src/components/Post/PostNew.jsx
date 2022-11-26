@@ -10,18 +10,9 @@ import Col from 'react-bootstrap/Col';
 import { Menu } from '@mantine/core';
 import { IconSettings, IconSearch, IconPhoto, IconMessageCircle, IconTrash, IconArrowsLeftRight } from '@tabler/icons';
 
-function PostApi() {
+function PostNew() {
   const url = "http://103.105.78.75/api/Forum/List";
   const [postdata, setPostdata] = useState([]);
-
-
-  // const getDataPost = async () => {
-  //   const response = await fetch(url);
-  //   const dataPost = await response.json();
-  //   setPostdata(dataPost);
-  //   console.log(postdata);
-  // };
-
 
   useEffect(() => {
     getDataPost();
@@ -37,7 +28,7 @@ function PostApi() {
   }
 
   return (
-    <div className="Post">
+    <div >
       {postdata.map((item) => {
         return (
             <CardPost 
@@ -76,60 +67,66 @@ function CardPost(props) {
 
   return (
     <>
-      <div className="Post">
-          <Row>
-            <Col sm={8}>
-              <User style={{ margin: "0 auto", paddingLeft: "0" }}  src={`http://103.105.78.75/${props.image}`} 
-              name=<b>
-                {props.nama}
-              </b>>
-                <User.Link color="#7a77ff" href="https://nextui.org/">
-                  {props.tgl} (ini buat tipe user)
-                </User.Link>
-              </User>
-            </Col>
-            <Col sm={4}>
-              <Menu position="right-start" shadow="md" width={200}>
-                <Menu.Target>
-                  <Icon className="float-end " icon="ci:more-vertical" color="#7a77ff" width="30" />
-                </Menu.Target>
+      <div className="Post" style={{gap: "2rem"}}>
+        <div className="container">
+            <Row>
+                <Col sm={8}>
+                <User style={{ margin: "10px", paddingLeft: "auto" }}  src={`http://103.105.78.75/${props.image}`} 
+                name=<b>
+                    {props.nama}
+                </b>>
+                    <User.Link color="#7a77ff" href="https://nextui.org/">
+                    {props.tgl} (ini buat tipe user)
+                    </User.Link>
+                </User>
+                </Col>
+                <Col sm={4}>
+                <Menu position="right-start" shadow="md" width={200}>
+                    <Menu.Target>
+                    <Icon className="float-end " style={{ marginTop: "10px", marginRight: "10px" }} icon="ci:more-vertical" color="#7a77ff" width="30" />
+                    </Menu.Target>
 
 
-                <Menu.Dropdown>
-                  <Menu.Item color="red" onClick={()=>deletePost(props.idPost)} icon={<IconTrash size={14} />}>Hapus post saya</Menu.Item>
-                </Menu.Dropdown>
-              </Menu>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm>
-              <div className="float-start">
-                <h4>{props.judul}</h4>
-                <span>{props.isi}</span>
-              </div>
-            </Col>
-          </Row>
+                    <Menu.Dropdown>
+                    <Menu.Item color="red" onClick={()=>deletePost(props.idPost)} icon={<IconTrash size={14} />}>Hapus post saya</Menu.Item>
+                    </Menu.Dropdown>
+                </Menu>
+                </Col>
+            </Row>
+            {/* <Row>
+                <Col sm>
+                <div className="float-start">
+                    <h4>{props.judul}</h4>
+                    <span>{props.isi}</span>
+                </div>
+                </Col>
+            </Row> */}
 
+            <Row>
+                <div className="content">
+                    <h4>{props.judul}</h4>
+                    <span>{props.isi}</span>
+                    <img src={`http://103.105.78.75/${props.image}`} alt="" />
 
-        <img src={`http://103.105.78.75/${props.image}`} alt="" />
+                    <div className="postReact">
+                        <Icon icon="icon-park-solid:like" color="#7a77ff" height="30" />
+                        {/* if not like <Icon icon="icon-park-outline:like" color="#7a77ff" height="30" /> */}
 
+                        <Icon icon="bx:comment-detail" color="#7a77ff" height="30" onClick={handleShow} />
 
-        <div className="postReact">
-          <Icon icon="icon-park-solid:like" color="#7a77ff" height="30" />
-          {/* if not like <Icon icon="icon-park-outline:like" color="#7a77ff" height="30" /> */}
+                        <Icon icon="bxs:share-alt" color="#7a77ff" height="30" />
+                        </div>
 
-          <Icon icon="bx:comment-detail" color="#7a77ff" height="30" onClick={handleShow} />
+                        <span style={{ color: "var(--gray)", fontSize: "12px" }}>{props.id} likes (ini dari id user guys)</span>
 
-          <Icon icon="bxs:share-alt" color="#7a77ff" height="30" />
-        </div>
-
-        <span style={{ color: "var(--gray)", fontSize: "12px" }}>{props.id} likes (ini dari id user guys)</span>
-
-        <div className="Comment">
-          <span>
-            <b>{props.nama}</b>
-          </span>
-          <span> {props.judul}</span>
+                        <div className="Comment">
+                        <span>
+                            <b>{props.nama}</b>
+                        </span>
+                        <span> {props.judul}</span>
+                    </div>
+                </div>
+            </Row>
         </div>
       </div>
 
@@ -171,4 +168,4 @@ function CardPost(props) {
 };
 
 
-export default PostApi;
+export default PostNew;

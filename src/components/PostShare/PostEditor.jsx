@@ -1,14 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 // import { Editor } from '@tinymce/tinymce-react';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import "./PostShare.css";
+import "./PostEditor.css";
 import { Input, Grid, Avatar, Row } from "@nextui-org/react";
 import { Icon } from '@iconify/react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { Menu} from '@mantine/core';
+import { IconUserCircle, IconSettings,IconLogout } from '@tabler/icons';
 import {Link} from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
+import foto from "../../img/billgates.jpg";
 
 
 
@@ -59,13 +62,35 @@ function PostEditor () {
   return (
     <>
       <div className="PostShare" >
+        <Link to="/forum/profile">
+          <img src={foto} alt="" className="ProfDesktop"/>
+        </Link>
+        
+        <Menu shadow="md" width={200} className="ProfMobile">
+
+          <Menu.Target>
+            <img src={foto} alt="" />
+          </Menu.Target>
+
+          <Menu.Dropdown>
+            <Menu.Label>Application</Menu.Label>
+            <Link to={'/forum/profile'}>
+              <Menu.Item icon={<IconUserCircle  size={14} />}>Profile</Menu.Item>
+            </Link>
+            <Menu.Item icon={<IconSettings size={14} />}>Setting</Menu.Item>
+
+            <Menu.Divider />
+            <Menu.Item color="red" icon={<IconLogout size={14} />}>Log out my account</Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+
           <Grid.Container gap={2} css={{ color: "$text" }} onClick={handleShow}>
-            <Row>
-              <Grid>
+            <Row style={{ width: "100%" }}>
+              <Grid style={{ width: "100%" }}>
                 <Input 
                   readOnly 
                   size="xl" 
-                  width="870px" 
+                  width="100%" 
                   initialValue="Tambahkan post Anda" 
                 />
               </Grid>
@@ -74,12 +99,6 @@ function PostEditor () {
               </Grid>
             </Row>
           </Grid.Container>
-
-          
-      {/* <div className="PostShare">
-        <img src={ProfileImage} alt="" />
-        
-      </div> */}
 
     </div>
     <Modal show={show} onHide={handleClose}>
@@ -122,7 +141,7 @@ function PostEditor () {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Link to={'/forum'}>
+          <Link to={'/forum/profile'}>
             <Button variant="primary" onClick={addPost}>
               Save Changes
             </Button>
