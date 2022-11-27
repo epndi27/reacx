@@ -19,7 +19,7 @@ export default function Forum() {
         </Router>
         <ForumPage/> 
         {/* <Profile/> */}
-        {/* <Auth/> */}
+        <Auth/>
     </div>
   );
 }

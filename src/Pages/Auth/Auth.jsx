@@ -3,6 +3,8 @@ import "./Auth.css";
 import Logo from "../../img/RPC_final.png";
 import LogIn from "../Auth/LogIn";
 import Register from "./Register";
+import Signup from "../Auth/AuthSignup";
+import Login from "../Auth/AuthLogin";
 
 const Auth = () => {
   return (
@@ -16,7 +18,9 @@ const Auth = () => {
       </div>
 
       {/* <Register/> */}
-      <LogIn/>
+      {/* <LogIn/> */}
+      <Signup/>
+      {/* <Login/> */}
 
     </div>
   );
