@@ -27,7 +27,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
   async function addProfile(){
     console.warn(NamaUser, ProfilePic_Path,)
     const formData = new FormData();
-    formData.append('IdUser', 14);
+    formData.append('IdUser', 132323);
     formData.append('ProfilePic_Path', ProfilePic_Path);
     formData.append('NamaUser', NamaUser);
 
@@ -35,7 +35,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
     formData.append('Kelamin', Kelamin);
     formData.append('Profesi', Profesi);
 
-    let result = await fetch("http://103.105.78.75/api/Profile/Upload",{
+    let result = await fetch("http://103.105.78.75/api/Profile/Update",{
       method: 'POST',
       body: formData
     });
@@ -86,9 +86,9 @@ function ProfileModal({ modalOpened, setModalOpened }) {
           <Form.Label>Tipe User </Form.Label>
           <Form.Select aria-label="Default select example">
             <option>Open this Tipe User</option>
-            <option value="1">Beginer</option>
-            <option value="2">Intermediate</option>
-            <option value="3">Advanced</option>
+            <option value="Beginer">Beginer</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
           </Form.Select>
           {/* <Form.Control type="email" placeholder="" /> */}
         </Form.Group>
@@ -96,9 +96,9 @@ function ProfileModal({ modalOpened, setModalOpened }) {
           <Form.Label>Kelamin</Form.Label>
           <Form.Select aria-label="Default select example">
             <option>Open this Kelamin</option>
-            <option value="1">Pria</option>
-            <option value="2">Wanita</option>
-            <option value="3">Waria</option>
+            <option value="Pria">Pria</option>
+            <option value="Wanita">Wanita</option>
+            <option value="Waria">Waria</option>
           </Form.Select>
           {/* <Form.Control type="email" placeholder="" /> */}
         </Form.Group>
@@ -157,7 +157,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
         </div> */}
         
       </form>
-      <button style={{ marginLeft: "auto" }} onClick={addProfile} className="button infoButton">Upload</button>
+      <button style={{ marginLeft: "auto" }} onClick={addProfile} className="button infoButton">Update</button>
     </Modal>
   );
 }

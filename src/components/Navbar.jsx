@@ -39,19 +39,12 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="home">Contact</a>
-          </li>
-          <li>
             <a href="home">About Us</a>
           </li>
           <li>
-            <a href="maketplace">Marketplace</a>
-          </li>
-          <li>
-            <a href="sellers">Sellers</a>
-          </li>
-          <li>
-            <a href="create">Create</a>
+          <Link to={'/forum'}>
+            <a href="home">Forum</a>
+            </Link>
           </li>
         </ul>
       </div>
