@@ -39,7 +39,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
       method: 'POST',
       body: formData
     });
-    alert("Post Terkirim")
+    
   }
 
   return ( 

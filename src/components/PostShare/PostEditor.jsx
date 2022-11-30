@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { Menu} from '@mantine/core';
-import { IconUserCircle, IconSettings,IconLogout } from '@tabler/icons';
+import { IconUserCircle, IconSettings,IconLogout, IconUser } from '@tabler/icons';
 import {Link} from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import foto from "../../img/billgates.jpg";
@@ -63,20 +63,22 @@ function PostEditor () {
     <>
       <div className="PostShare" >
         <Link to="/forum/profile">
-          <img src={foto} alt="" className="ProfDesktop"/>
+          <Icon className="ProfDesktop" icon="healthicons:ui-user-profile" color="#cfcdcd" height="50"/>
         </Link>
         
         <Menu shadow="md" width={200} className="ProfMobile">
 
           <Menu.Target>
-            <img src={foto} alt="" />
+            <Icon icon="healthicons:ui-user-profile" color="#cfcdcd" height="70"/>
           </Menu.Target>
 
           <Menu.Dropdown>
             <Menu.Label>Application</Menu.Label>
-            <Link to={'/forum/profile'}>
+            {/* <Link to={'/forum/profile'}>
               <Menu.Item icon={<IconUserCircle  size={14} />}>Profile</Menu.Item>
-            </Link>
+            </Link> */}
+            <Menu.Item icon={<IconUserCircle  size={14} />}>Profile</Menu.Item>
+
             <Menu.Item icon={<IconSettings size={14} />}>Setting</Menu.Item>
 
             <Menu.Divider />

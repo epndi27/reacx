@@ -14,6 +14,8 @@ function PostNew() {
   const url = "http://103.105.78.75/api/Forum/List";
   const [postdata, setPostdata] = useState([]);
 
+  const [commentOpen, setCommentOpen] = useState(false);
+
   useEffect(() => {
     getDataPost();
   }, []);
@@ -40,6 +42,8 @@ function PostNew() {
                 isi={item.IsiPost} 
                 tgl={item.created_at} 
                 image={item.img_path}
+                like={item.Like}
+                tipe={item.TipePost}
                  />
         );
       })}
@@ -63,6 +67,16 @@ function CardPost(props) {
     window.location.reload()
   }
 
+  async function addLike(id)
+  {
+    let result = await fetch("http://103.105.78.75/api/Forum/List/TambahLike/"+id, {
+      method: 'GET'
+    });
+    result = await result.json();
+    console.warn(result)
+    window.location.reload()
+  }
+
 
 
   return (
@@ -76,7 +90,7 @@ function CardPost(props) {
                     {props.nama}
                 </b>>
                     <User.Link color="#7a77ff" href="https://nextui.org/">
-                    {props.tgl} (ini buat tipe user)
+                    {props.tipe} 
                     </User.Link>
                 </User>
                 </Col>
@@ -109,22 +123,30 @@ function CardPost(props) {
                     <img src={`http://103.105.78.75/${props.image}`} alt="" />
 
                     <div className="postReact">
-                        <Icon icon="icon-park-solid:like" color="#7a77ff" height="30" />
+                      <div>
+                        <Icon icon="icon-park-solid:like" onClick={()=>addLike(props.idPost)} color="#7a77ff" height="30" />
+
+                        <span style={{ color: "var(--gray)", fontSize: "12px", marginLeft:"10px" }}>{props.like} Likes</span>
                         {/* if not like <Icon icon="icon-park-outline:like" color="#7a77ff" height="30" /> */}
-
-                        <Icon icon="bx:comment-detail" color="#7a77ff" height="30" onClick={handleShow} />
-
+                      </div>
+                      <div onClick={handleShow}>
+                        <Icon icon="bx:comment-detail" color="#7a77ff" height="30" />
+                        <span style={{ color: "var(--gray)", fontSize: "12px", marginLeft:"10px" }}>{props.like} Comments</span>
+                      </div>
+                      {/* <div>
                         <Icon icon="bxs:share-alt" color="#7a77ff" height="30" />
+                      </div> */}
+
+                        
                         </div>
 
-                        <span style={{ color: "var(--gray)", fontSize: "12px" }}>{props.id} likes (ini dari id user guys)</span>
 
                         <div className="Comment">
-                        <span>
-                            <b>{props.nama}</b>
-                        </span>
-                        <span> {props.judul}</span>
-                    </div>
+                          <span>
+                              <b>{props.nama}</b>
+                          </span>
+                          <span> {props.judul}</span>
+                        </div>
                 </div>
             </Row>
         </div>

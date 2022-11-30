@@ -56,9 +56,9 @@ function CardProfile(props) {
   return (
     <div className="ProfileCard">
       <div className="ProfileImages">
-        <img src={Cover} alt="" />
-        <img 
-        width="90px"
+        <img  src={Cover} alt="" />
+        <img style={{ width: "90px", height:"90px" }}
+        width="80px"
         height="80px"
         src={`http://103.105.78.75/${props.image}`} alt="" />
       </div>
