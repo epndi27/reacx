@@ -42,13 +42,13 @@ export default function Navbar() {
             <a href="home">About Us</a>
           </li>
           <li>
-          <Link to={'/forum'}>
+          <Link to={'/forum/Signup'}>
             <a href="home">Forum</a>
             </Link>
           </li>
         </ul>
       </div>
-      <Link to={'/forum'}>
+      <Link to={'/forum/Signup'}>
         <Button text="Forum">Click me!</Button>
       </Link>
     </Nav>

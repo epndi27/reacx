@@ -1,9 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Auth.css";
-import Logo from "../../img/logo.png";
 import app from "../../config/firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { createGlobalState } from 'react-hooks-global-state';
+import "./Auth.css";
+import Logo from "../../img/RPC_final.png";
+import LogIn from "../Auth/LogIn";
+import Register from "./Register";
+import Signup from "../Auth/AuthSignup";
+import Login from "../Auth/AuthLogin";
+
+const AuthSignUp = () => {
+  return (
+    <div className="Auth">
+      <div className="a-left">
+        <img src={Logo} alt="" />
+        <div className="Webname">
+          <h1>Rakit PC</h1>
+          <h6>Rakit PC anda disini</h6>
+        </div>
+      </div>
+
+      <SignUp/>
+
+    </div>
+  );
+};
+
 
 
 
@@ -106,6 +130,18 @@ class SignUp extends Component {
       var errorMessage = error.Message;
       console.log(errorCode, errorMessage)
     })
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        const { useGlobalState } = createGlobalState({ ui: uid });
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
   }
   render () {
     const {email, password} = this.state
@@ -160,15 +196,16 @@ class SignUp extends Component {
         </div>
 
         <div>
-            <span style={{fontSize: '12px'}}>Already have an account. Login!</span>
+            <span style={{fontSize: '12px'}}>Already have an account. <Link to={'/forum/Login'}>Login!</Link></span>
         </div>
-        <Link to={'/AuthLogin'}>
+        
+        {/* <Link to={'/Login'}> */}
           <button className="button infoButton" onClick={this.handleRegisterSubmit} type="submit">Signup</button>
-        </Link>
+        {/* </Link> */}
       </form>
     </div>
   );
   }
 }
 
-export default SignUp;
+export default AuthSignUp;

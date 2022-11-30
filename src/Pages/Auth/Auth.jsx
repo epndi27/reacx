@@ -12,15 +12,12 @@ const Auth = () => {
       <div className="a-left">
         <img src={Logo} alt="" />
         <div className="Webname">
-          <h1>Rakit PC</h1>
+          <h1 style={{}} >Rakit PC</h1>
           <h6>Rakit PC anda disini</h6>
         </div>
       </div>
 
-      {/* <Register/> */}
-      {/* <LogIn/> */}
-      <Signup/>
-      {/* <Login/> */}
+      <Login/>
 
     </div>
   );

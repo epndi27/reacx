@@ -1,12 +1,36 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Auth.css";
-import Logo from "../../img/logo.png";
 import app from "../../config/firebase";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { createGlobalState } from 'react-hooks-global-state';
+import "./Auth.css";
+import Logo from "../../img/RPC_final.png";
+import LogIn from "../Auth/LogIn";
+import Register from "./Register";
+import Signup from "../Auth/AuthSignup";
+import Login from "../Auth/AuthLogin";
+
+const AuthLoginn = () => {
+  return (
+    <div className="Auth">
+      <div className="a-left">
+        <img src={Logo} alt="" />
+        <div className="Webname">
+          <h1>Rakit PC</h1>
+          <h6>Rakit PC anda disini</h6>
+        </div>
+      </div>
+
+      <Loginn/>
+
+    </div>
+  );
+};
 
 
-class Login extends Component {
+
+class Loginn extends Component {
   state = {
     email:'',
     password:''
@@ -35,6 +59,20 @@ class Login extends Component {
       var errorMessage = error.Message;
       console.log(errorCode, errorMessage)
     })
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        const { useGlobalState } = createGlobalState({ ui: uid });
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+
+    
   }
   
   render () {
@@ -71,7 +109,7 @@ class Login extends Component {
   
           <div>
               <span style={{ fontSize: "12px" }}>
-                Don't have an account Sign up
+                Don't have an account <Link to={'/forum/Signup'}>Sign Up</Link>
               </span>
             <Link to={'/ForumPage'}>
             <button className="button infoButton" onClick={this.handleRegisterSubmit}>Login</button>
@@ -174,4 +212,4 @@ class Login extends Component {
 //   }
 // }
 
-export default Login;
+export default AuthLoginn;

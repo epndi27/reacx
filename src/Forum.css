@@ -37,7 +37,7 @@
     color: white;
     border:none;
     border-radius: 0.5rem;
-    background: var(--buttonBg);
+    background: rgb(77, 19, 143);
     transition:all 100ms ease-out;
   }
   
