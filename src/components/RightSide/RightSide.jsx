@@ -24,7 +24,7 @@ const RightSide = () => {
 
           <Menu.Dropdown>
             <Menu.Label>Application</Menu.Label>
-            <Link to={'/forum/profile'}>
+            <Link to={'/DataProfile'}>
               <Menu.Item icon={<IconUserCircle  size={14} />}>Profile</Menu.Item>
             </Link>
             <Menu.Item icon={<IconSettings size={14} />}>Setting</Menu.Item>

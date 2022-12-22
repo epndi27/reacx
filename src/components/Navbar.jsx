@@ -39,11 +39,13 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="home">About Us</a>
+            <Link to={'/IsiForm'}>
+              <a href="home">About Us</a>
+            </Link>
           </li>
           <li>
-          <Link to={'/forum/Signup'}>
-            <a href="home">Forum</a>
+            <Link to={'/forum/Signup'}>
+              <a href="home">Forum</a>
             </Link>
           </li>
         </ul>

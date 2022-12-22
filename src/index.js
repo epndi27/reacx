@@ -10,6 +10,9 @@ import Login from "./Pages/Auth/AuthLogin";
 import Signup from "./Pages/Auth/AuthSignup"
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
+import DataProfile from "../src/DataProfile";
+import IsiForm from "../src/IsiForm";
+
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -27,6 +30,10 @@ root.render(
       <Route path="/forum/login" component={Login} />
       <Route path="/forum/signup" component={Signup} />
       <Route path="/forum/profile" component={Profile} />
+
+      <Route path="/dataprofile" component={DataProfile} />
+      <Route path="/isiform" component={IsiForm} />
+      
     </Switch>
   </Router>
   // <React.StrictMode>

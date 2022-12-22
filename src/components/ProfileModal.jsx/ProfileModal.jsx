@@ -1,12 +1,54 @@
 import { Modal, Space, useMantineTheme } from "@mantine/core";
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { Col, Row, Form } from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 
 
 function ProfileModal({ modalOpened, setModalOpened }) {
   const theme = useMantineTheme();
   const [value, setValue] = useState("default");
+  // const url = "http://103.105.78.75/api/Profile/List";
+  //   const [postmodal, setPostmodal] = useState([]);
+
+  //   const getProfilModal = async () => {
+  //     const response = await fetch(url);
+  //     const dataModal = await response.json();
+  //     setPostmodal(dataModal);
+  //     console.log(postmodal);
+
+  //     // function handleUploadChange(e){
+  //     //   console.log(e.target.files[0]);
+  //     //   let uploaded = e.target.files[0];
+  //     //   setImage(URL.createObjectURL(uploaded));
+  //     // }
+  //   };
+
+  //   useEffect(() => {
+  //     getProfilModal();
+  //   }, []);
+
+  //   return (
+  //     <div className="Post">
+  //       {postprofile.map((item) => {
+  //         return (
+  //           <div className="">
+  //             <CardProfile 
+  //                 key={item.IdProfile} 
+  //                 id={item.IdUser} 
+  //                 nama={item.NamaUser} 
+  //                 Tipe={item.TipeUser} 
+  //                 Kelamin={item.Kelamin} 
+  //                 profesi={item.Profesi}
+  //                 tgl={item.created_at} 
+  //                 tglupdate={item.updated_at}
+  //                 image={item.ProfilePic_Path}
+  //                  />
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   );
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -27,7 +69,7 @@ function ProfileModal({ modalOpened, setModalOpened }) {
   async function addProfile(){
     console.warn(NamaUser, ProfilePic_Path,)
     const formData = new FormData();
-    formData.append('IdUser', 132323);
+    formData.append('IdUser', 15656);
     formData.append('ProfilePic_Path', ProfilePic_Path);
     formData.append('NamaUser', NamaUser);
 
@@ -157,9 +199,12 @@ function ProfileModal({ modalOpened, setModalOpened }) {
         </div> */}
         
       </form>
+      <Link to={'/ForumPage'}>
       <button style={{ marginLeft: "auto" }} onClick={addProfile} className="button infoButton">Update</button>
+      </Link>
     </Modal>
   );
+  
 }
 
 export default ProfileModal;
